@@ -40,7 +40,6 @@ class HomePage(Page):
     )
 
 
-
     strbody = StreamField([
         ('figcaptionblock', FigCaptionBlock()),
         ('rtfblock', RichTextBlock(label="Текст")),

@@ -179,11 +179,11 @@ body > section,
 	Slider
 ==========================================*/
 
-#slider {
+#eco-slider {
 	padding: 0;
 }
 
-#slider .carousel-inner .item {
+#eco-slider .carousel-inner .item {
   background-size: cover;
 }
 
