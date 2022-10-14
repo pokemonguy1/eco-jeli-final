@@ -9,7 +9,9 @@ from wagtail.images.blocks import ImageChooserBlock
 from modelcluster.fields import ParentalKey
 from wagtail.images.edit_handlers import ImageChooserPanel
 
+
 from .blocks import FigCaptionBlock
+
 
 
 class Slider(Orderable):
@@ -17,7 +19,8 @@ class Slider(Orderable):
     page = ParentalKey("home.HomePage", related_name="slides", on_delete=models.CASCADE)
 
     #slide_header = models.CharField(max_length=200, verbose_name="Заголовок Слайда", default="") #koroche if still operational error "no such column home_slider.slide_header, delete this row
-    carousel_caption = models.CharField(max_length=600, verbose_name="Текст Слайда", default="", null=True, blank=True)
+    carousel_title = models.CharField(max_length=250, verbose_name="Заголовок слайда", default="", null=True, blank=True)
+    carousel_caption = models.CharField(max_length=600, verbose_name="Текст слайда", default="", null=True, blank=True)
     carousel_image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,

@@ -11,10 +11,24 @@ from .blocks import FigCaptionBlock
 
 class BlogIndexPage(Page):
 
+
+    heading = models.CharField(max_length=250, blank=True, null=True, verbose_name="Подзаголовок")
+
     intro = RichTextField(blank=True)
 
+    bgimg = models.ForeignKey(
+        'wagtailimages.Image',
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name="Задний фон"
+    )
+
     content_panels = Page.content_panels + [
-        FieldPanel('intro')
+        FieldPanel('heading'),
+        FieldPanel('intro'),
+        ImageChooserPanel('bgimg'),
     ]
 
 
