@@ -53,11 +53,11 @@
                 <!-- /responsive nav button -->
 
                 <!-- logo -->
-                <a class="navbar-brand" href="../index.html">
+
                     <h1 id="logo">
                         <img src="{% static "/img/logo.png" %}" alt="Eco-Jeli">
                     </h1>
-                </a>
+
                 <!-- /logo -->
             </div>
 
@@ -90,7 +90,7 @@
 
             {% for post in page.get_children %}
 
-                {% image post.specific.bgimg fill-800x600 as img %}
+                {% image post.specific.bgimg fill-1980x1080 as img %}
 
                 <figure class="mix work-item Year-2022">
                     <img src="{{ img.url }}" alt="">

@@ -80,42 +80,10 @@
         Home Slider
         ==================================== -->
 
-    <section id="eco-slider">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-            <!-- Indicators bullet -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            </ol>
-            <!-- End Indicators bullet -->
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-
-                <!-- single slide -->
-                {% image page.bgimg fill-1980x1080 as background %}
-
-                <div class="item active" style="background-image: url( {{ background.url }} );">
-                    <div class="carousel-caption">
-                        <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">
-                            {{ page.title }}</h2>
-                        <p data-wow-duration="1000ms" class="wow slideInRight animated">{{ page.date }}
-                        </p>
-                    </div>
-                </div>
-                <!-- end single slide -->
-
-
-            </div>
-            <!-- End Wrapper for slides -->
-
-        </div>
-    </section>
-
     <!--
         End Home SliderEnd
         ==================================== -->
-    <div class="container">
+    <div class="container" style="padding-top: 160px">
         <div class="row" id="linktoinfo">
 
             <div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
@@ -123,15 +91,26 @@
                 <div class="devider"><i class="fa fa-leaf fa-lg"></i></div>
             </div>
 
-            <div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-                <p>
 
-                    {% include_block page.body %}
+        <div class="project-wrapper">
 
-                </p>
-                <br>
-                <p>Author: {{ page.author }}</p>
+            {% for person in self.staff.all %}
+            {% image person.photo fill-800x800 as img %}
+
+            <div class="card">
+              <img src="{{ img.url }}" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{ person.name }}</b></h4>
+                <p>{{ person.role }}</p>
+                  <p>{{ person.email }}</p>
+              </div>
             </div>
+                <center>
+                <div class="devider"><i class="fa fa-leaf fa-lg"></i></div>
+                </center>
+            {% endfor %}
+
+        </div>
 
 
         </div>

@@ -8,10 +8,7 @@ from wagtail.core.blocks import RichTextBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
-
-class BlogIndexPage(Page):
-
-
+class EventIndexPage(Page):
     heading = models.CharField(max_length=250, blank=True, null=True, verbose_name="Подзаголовок")
 
     intro = RichTextField(blank=True)
@@ -32,9 +29,8 @@ class BlogIndexPage(Page):
     ]
 
 
-class BlogPage(Page):
-
-    date = models.DateField("Дата публикации")
+class EventPage(Page):
+    date = models.DateField("Дата проведения")
     bgimg = models.ForeignKey(
         'wagtailimages.Image',
         blank=True,
@@ -56,10 +52,16 @@ class BlogPage(Page):
         index.SearchField('body'),
     ]
 
+    joinbtn = models.CharField(max_length=500, blank=True, null=True, verbose_name="Участвовать ссылка")
+    reviewbtn = models.CharField(max_length=500, blank=True, null=True, verbose_name="Оставить отзыв ссылка")
+
+
     content_panels = Page.content_panels + [
         FieldPanel('date'),
         ImageChooserPanel('bgimg'),
         FieldPanel('intro'),
         FieldPanel('body'),
         FieldPanel('author'),
+        FieldPanel('joinbtn'),
+        FieldPanel('reviewbtn')
     ]

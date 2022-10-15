@@ -99,7 +99,7 @@
 
                 {% for loop_cycle in self.slides.all %}
 
-                {% image loop_cycle.carousel_image original as img %}
+                {% image loop_cycle.carousel_image fill-1980x1080 as img %}
 
                 <!-- single slide -->
 
@@ -124,6 +124,16 @@
     <!--
         End Home SliderEnd
         ==================================== -->
+    <center>
+    <div class="text-center wow fadeInRight animated" data-wow-duration="500ms" style="width:60%; padding-top: 60px; padding-bottom: 20px">
+
+        <p style="font-size: 16pt">
+             {{ page.body|richtext }}
+        </p>
+
+    </div>
+    </center>
+
 
     <section id="works" class="works clearfix">
         <div class="container">
@@ -140,7 +150,7 @@
     </section>
 
     <center>
-    <div id="calendar">
+    <div id="calendar" style="padding-top: 80px; padding-bottom: 80px">
 
         <iframe src="https://calendar.google.com/calendar/embed?src=anasyrov72%40gmail.com&ctz=Asia%2FAlmaty" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
@@ -159,7 +169,7 @@
     <footer id="footer" class="footer">
                     <p class="copyright text-center">
                         Copyright © 2022 <a href="#">EcoJeli</a>. All rights reserved.
-                        Designed & developed by Nisa students.
+                        Designed & developed by Alikhan Nassyrov.
                     </p>
     </footer>
 
