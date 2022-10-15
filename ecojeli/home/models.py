@@ -7,7 +7,6 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.core.blocks import RichTextBlock
 from wagtail.images.blocks import ImageChooserBlock
 from modelcluster.fields import ParentalKey
-from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 from .blocks import FigCaptionBlock
@@ -43,13 +42,7 @@ class HomePage(Page):
     )
 
 
-    strbody = StreamField([
-        ('figcaptionblock', FigCaptionBlock()),
-        ('rtfblock', RichTextBlock(label="Текст")),
-        ('imgblock', ImageChooserBlock(label="Изображение", template="blocks/imgblock.html")),
-        ('embedblock', EmbedBlock(label="Ссылка"))
-
-    ], blank=True, verbose_name="Содержимое")
+    body = RichTextField(blank=True, verbose_name="Содержание")
 
 
     content_panels = Page.content_panels + [
@@ -60,5 +53,5 @@ class HomePage(Page):
             heading="Слайдер",
         ),
         FieldPanel('subtitle'),
-        StreamFieldPanel('strbody'),
+        StreamFieldPanel('body'),
     ]

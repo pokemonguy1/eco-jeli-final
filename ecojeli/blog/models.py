@@ -1,7 +1,7 @@
 from django.db import models
 from wagtail.models import Page
 from wagtail.fields import RichTextField, StreamField
-from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.core.blocks import RichTextBlock
@@ -44,7 +44,12 @@ class BlogPage(Page):
         verbose_name="Задний фон"
     )
     intro = models.CharField(max_length=250, blank=True, null=True, verbose_name="Подзаголовок")
-    body = RichTextField(blank=True, verbose_name="Содержание")
+    body = StreamField([
+        ('figcaptionblock', FigCaptionBlock()),
+        ('rtfblock', RichTextBlock(label="Текст")),
+        ('embedblock', EmbedBlock(label="Ссылка"))
+
+    ], blank=True, verbose_name="Содержимое")
     author = models.CharField(max_length=250, blank=True, null=True, verbose_name="Автор")
 
     search_fields = Page.search_fields + [

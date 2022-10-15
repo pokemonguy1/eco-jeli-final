@@ -3,7 +3,7 @@
 {% load static %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-{% block body_class %}template-blogpage{% endblock %}
+
 
 {% block content %}
 
@@ -126,7 +126,7 @@
             <div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
                 <p>
 
-                    {{ page.body|richtext }}
+                    {% include_block page.body %}
 
                 </p>
                 <br>

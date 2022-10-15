@@ -265,11 +265,15 @@ top: -8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   height: 8px;
   width: 8px;
+  border-color: #000;
+  background-color: #fff;
 }
 
 .carousel-indicators .active {
   height: 8px;
   width: 8px;
+  border-color: #000;
+  background-color: #47b696;
 }
 
 
@@ -818,3 +822,6 @@ label.error {
   color: #47b696;
 }
 
+#calendar{
+
+}
