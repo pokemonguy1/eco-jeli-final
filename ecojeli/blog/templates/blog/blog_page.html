@@ -50,7 +50,7 @@
                 <!-- /responsive nav button -->
 
                 <!-- logo -->
-                <a class="navbar-brand">
+                <a class="navbar-brand" href="{% slugurl 'home_page' %}">
                     <h1 id="logo">
 
                         <img src="{% static "img/logo.png" %}" alt="Eco-Jeli">
@@ -123,7 +123,7 @@
                 <div class="devider"><i class="fa fa-leaf fa-lg"></i></div>
             </div>
 
-            <div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
+            <div class="sec-sub-title wow fadeInRight animated" data-wow-duration="500ms">
                 <p>
 
                     {% include_block page.body %}

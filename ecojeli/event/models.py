@@ -52,8 +52,9 @@ class EventPage(Page):
         index.SearchField('body'),
     ]
 
-    joinbtn = models.CharField(max_length=500, blank=True, null=True, verbose_name="Участвовать ссылка")
-    reviewbtn = models.CharField(max_length=500, blank=True, null=True, verbose_name="Оставить отзыв ссылка")
+    joinbtn = models.CharField(max_length=800, blank=True, null=True, verbose_name="Участвовать ссылка")
+    reviewbtn = models.CharField(max_length=800, blank=True, null=True, verbose_name="Оставить отзыв ссылка")
+
 
 
     content_panels = Page.content_panels + [
@@ -63,5 +64,6 @@ class EventPage(Page):
         FieldPanel('body'),
         FieldPanel('author'),
         FieldPanel('joinbtn'),
-        FieldPanel('reviewbtn')
+        FieldPanel('reviewbtn'),
+
     ]

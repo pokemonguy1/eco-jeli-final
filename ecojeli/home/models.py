@@ -54,4 +54,5 @@ class HomePage(Page):
         ),
         FieldPanel('subtitle'),
         StreamFieldPanel('body'),
+
     ]
